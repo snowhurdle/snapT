@@ -18,7 +18,6 @@ https://sites.google.com/a/chromium.org/chromedriver/
 
 After everything is set up, just run the program as java program
 
-
 Expected result:
 
 Chrome browser will launch with URL provided in the script and run through all test cases.
