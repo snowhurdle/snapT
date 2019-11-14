@@ -5,7 +5,7 @@ Instructions for running E2E tests:
 I have written e2e test in Java and used selenium webdriver 
 For an IDE perspective, used Eclipse IDE
 You can download IDE from the following link
-*https://www.eclipse.org/downloads/
+https://www.eclipse.org/downloads/
 Please import all Selenium JAR files into the java project 
 You can download Selenium JAR files from the following link
 https://www.seleniumhq.org/download/
