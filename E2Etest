@@ -1,0 +1,60 @@
+package snaptravelpackages;
+ 
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
+ 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+ 
+ 
+public class Testtravel {
+ 
+public static void main(String[] args) {
+System.setProperty("webdriver.chrome.driver","/home/abhinav/Downloads/chromedriver");
+WebDriver st = new ChromeDriver();
+String baseUrl= "https://www.snaptravel.com/search?encrypted_user_id=5xqebwRCiWusH08KS2yJKA&otp=5549929985";
+st.get(baseUrl);
+st.manage().window().maximize();
+st.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+st.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]")).click();
+st.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+String winHandleBefore = st.getWindowHandle();
+st.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/div[3]/div/div[1]/div/div[2]/div[4]/div[2]/div[2]")).click();
+for(String winHandle : st.getWindowHandles()) {
+st.switchTo().window(winHandle);
+}
+st.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[1]/div[3]/div/div[3]")).click();
+st.findElement(By.xpath("//*[@id=\"rooms\"]/div[2]/div[1]/div[2]/div[1]/div[3]/div")).click();
+st.findElement(By.xpath("//input[@id='first-name']")).clear();
+WebElement firstname = st.findElement(By.xpath("//input[@id='first-name']"));
+firstname.sendKeys("Tester");
+st.findElement(By.xpath("//input[@id='last-name']")).clear();
+WebElement lastname = st.findElement(By.xpath("//input[@id='last-name']"));
+lastname.sendKeys("Tester12");
+st.findElement(By.xpath("//input[@name='email']")).clear();
+WebElement email = st.findElement(By.xpath("//input[@id='email']"));
+email.sendKeys("Tester@test.com");
+st.findElement(By.xpath("//input[@name='phone-number']")).clear();
+WebElement phonenumber = st.findElement(By.xpath("//input[@id='phone-number']"));
+phonenumber.sendKeys("9056466674");
+st.findElement(By.xpath("//button[@id='btn-next-to-payment']")).click();
+st.findElement(By.xpath("//input[@id='pan']")).clear();
+WebElement cno = st.findElement(By.xpath("//input[@id='pan']"));
+cno.sendKeys("4747546437461234");
+st.findElement(By.xpath("//input[@placeholder='MM/YY']")).clear();
+WebElement expiry = st.findElement(By.xpath("//input[@placeholder='MM/YY']"));
+expiry.sendKeys("0420");
+st.findElement(By.xpath("//input[@id='cvv']")).clear();
+WebElement cvv = st.findElement(By.xpath("//input[@id='cvv']"));
+cvv.sendKeys("042");
+st.findElement(By.xpath("//input[@id='billing-address']")).clear();
+WebElement address = st.findElement(By.xpath("//input[@id='billing-address']"));
+address.sendKeys("260 wellesley street east");
+st.findElement(By.xpath("//span[contains(text(),' Wellesley Street East, Toronto, ON, Canada')]")).click();
+}
+ 
+}
